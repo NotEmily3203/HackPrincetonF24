@@ -5,7 +5,7 @@ Specifically, this project leverages blockchain, IPFS, and encryption to securel
 Team Info: Our team is driven by a passion for better planning and forward-thinking solutions that empower individuals and their loved ones. We are dedicated to blending a better future by leveraging modern technology to solve real-life challenges around asset inheritance and security. With expertise in blockchain, cryptography, and decentralized storage, we aim to create innovative tools that offer peace of mind and control, helping people protect what matters most in a transparent, secure, and privacy-preserving way.
 
 Members (HackPrinceton Fall 2024):
-Emily Lin
-Kevin Coronel
-Melody Ding
-Tausi Choudhury
+Emily Lin, 
+Kevin Coronel, 
+Melody Ding, &
+Tausi Choudhury, 
