@@ -8,4 +8,4 @@ Members (HackPrinceton Fall 2024):
 Emily Lin, 
 Kevin Coronel, 
 Melody Ding, &
-Tausi Choudhury, 
+Tausi Choudhury
