@@ -1,6 +1,20 @@
 {% extends "base.html" %} {% block title %} Home Page {% endblock %}
 {% block content %} 
-<button name="creator"><a href="{% url 'creator' %}">Creator</a></button>
-<button name="beneficiary"><a href="{% url 'beneficiary' %}">Beneficiary</a></button>
-<button name="assignee"><a href="{% url 'assignee' %}">Assignee</a></button>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="d-flex flex-column  align-items-center" style=" position: relative; z-index: 1; color:white">
+<h1>Creating a will doesn't have to be complicated</h1>
+<br>
+<br>
+<h3>Are you a ...</h3>
+<div class="d-flex justify-content-center align-items-center" style=" position: relative; z-index: 1; color:white">
+<button name="creator" style="margin: 5rem; padding: 1rem;border-radius: 15px;"><a href="{% url 'creator' %}">Creator</a></button>
+<button name="beneficiary" style="margin: 5rem; padding: 1rem;border-radius: 15px;"><a href="{% url 'beneficiary' %}">Beneficiary</a></button>
+<button name="assignee" style="margin: 5rem; padding: 1rem;border-radius: 15px;"><a href="{% url 'assignee' %}">Assignee</a></button>
+</div>
+</div>
 {% endblock %}
