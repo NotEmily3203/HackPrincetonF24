@@ -92,3 +92,35 @@ def generate_pdf(user_info, file_path):
     # Save the PDF
     c.showPage()
     return c.save()
+
+from .web3_service import get_contract_balance, get_owner_details, get_beneficiary_details, is_owner_deceased, check_in
+
+# Example view to display contract balance
+def contract_status(request):
+    contract_balance = get_contract_balance()
+    owner_wallet, owner_name = get_owner_details()
+    beneficiary_wallet, beneficiary_name = get_beneficiary_details()
+    owner_deceased = is_owner_deceased()
+
+    context = {
+        'contract_balance': contract_balance,
+        'owner_wallet': owner_wallet,
+        'owner_name': owner_name,
+        'beneficiary_wallet': beneficiary_wallet,
+        'beneficiary_name': beneficiary_name,
+        'owner_deceased': owner_deceased,
+    }
+
+    return render(request, 'contract_status.html', context)
+
+# Example view to handle check-in
+def perform_check_in(request):
+    account = "0x418A486a51603D8367EcaC11eeDDEFe47dA87E7f"  # Replace with actual account address
+    private_key = "0x1bce540a12d41159a0853d97beeae84f8838628307525b82183d3a165ac8ee36"  # Replace with actual private key
+    transaction_hash = check_in(account, private_key)
+    
+    context = {
+        'transaction_hash': transaction_hash
+    }
+
+    return render(request, 'check_in.html', context)
