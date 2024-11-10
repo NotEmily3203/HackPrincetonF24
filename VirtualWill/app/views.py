@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from django.http import FileResponse
 from django.conf import settings
 from app.models import Creator, Beneficiary, Assignee
@@ -21,6 +21,7 @@ def home(request):
 def creatorForm(request):
     context={}
     form=CreatorForm()
+
     pdf_file=None
     if request.method == 'POST':
         form = CreatorForm(request.POST)
@@ -33,18 +34,34 @@ def creatorForm(request):
                 'assets' : form.cleaned_data['assets']
             }
             pdf_file_path = os.path.join(settings.MEDIA_ROOT, f"user_info_{clean_form['owner']}.pdf")
-            
             pdf_file = generate_pdf(clean_form, pdf_file_path)
+            pdf_link = f"media/user_info_{clean_form['owner']}.pdf"
+            #return redirect('/pdf.html/')
+            return render(request, "pdf.html", {'pdf_file': pdf_link})
+            return redirect('/pdf')
+            
     info = Creator.objects.all()
     context['info'] = info
     context["title"] = "creator"
     context['form'] = form
+    
     context['pdf'] = pdf_file
     return render(request, "creator.html",context)
+
 
 def beneficiaryForm(request):
     context={}
     form=BeneficiaryForm()
+
+    if request.method == 'POST':
+        form = BeneficiaryForm(request.POST)
+        if form.is_valid():
+            #do something with the hash
+            #put info you wanna display into this dict
+            context = { "pee" : "poop"} 
+            return render(request, "beneficiarywill.html", context)
+            return redirect('/beneficiarywill')
+
     info = Beneficiary.objects.all()
     context['info'] = info
     context["title"] = "beneficiary"

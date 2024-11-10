@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block title %} Pdf {% endblock %}
+{% block content %} 
+<style>
+    /* Set html and body to full height */
+
+
+    /* Set the container and embed to 100% of the viewport */
+    .pdf-container {
+        width: 100%;    /* Adjust width to fit your preference */
+        height: 100vh;  /* Full viewport height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    embed {
+        width: 100%;
+        height: 60%;
+    }
+</style>
+{% load static %}
+<div class="pdf-container">
+    <h1>Submission Sucessful!</h1>
+    <br>
+    <embed src="{{ pdf_file }}" type="application/pdf" />
+</div>
+
+   
+{% endblock %}
